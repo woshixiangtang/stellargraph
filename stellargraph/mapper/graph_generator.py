@@ -60,7 +60,7 @@ class GraphGenerator:
                     )
                 )
 
-    def flow(self, graph_ilocs, targets=None, batch_size=1, name=None):
+    def flow(self, graph_ilocs, targets=None, batch_size=1, seed=None, name=None):
         """
         Creates a generator/sequence object for training, evaluation, or prediction
         with the supplied graph indexes and targets.
@@ -71,6 +71,7 @@ class GraphGenerator:
             targets (2d array, optional): a 2D array of numeric graph targets with shape `(len(graph_ilocs),
                 len(targets))`.
             batch_size (int, optional): The batch size that defaults to 1.
+            seed (int, optional): Random seed
             name (str, optional): An optional name for the returned generator object.
 
         Returns:
@@ -98,5 +99,6 @@ class GraphGenerator:
             graphs=[self.graphs[i] for i in graph_ilocs],
             targets=targets,
             batch_size=batch_size,
+            seed=seed,
             name=name,
         )

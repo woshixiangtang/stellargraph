@@ -550,7 +550,7 @@ class GraphSequence(Sequence):
         normalize_adj (bool, optional): Specifies whether the adjacency matrix for each graph should
             be normalized or not. The default is True.
         batch_size (int, optional): The batch size. It defaults to 1.
-        seed (optional): seed for random number generator
+        seed (int, optional): Random seed.
         name (str, optional): An optional name for this generator object.
     """
 
