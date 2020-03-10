@@ -550,11 +550,12 @@ class GraphSequence(Sequence):
         normalize_adj (bool, optional): Specifies whether the adjacency matrix for each graph should
             be normalized or not. The default is True.
         batch_size (int, optional): The batch size. It defaults to 1.
+        seed (optional): seed for random number generator
         name (str, optional): An optional name for this generator object.
     """
 
     def __init__(
-        self, graphs, targets=None, normalize_adj=True, batch_size=1, name=None
+        self, graphs, targets=None, normalize_adj=True, batch_size=1, seed=None, name=None
     ):
 
         self.name = name
@@ -562,6 +563,7 @@ class GraphSequence(Sequence):
         self.normalize_adj = normalize_adj
         self.targets = targets
         self.batch_size = batch_size
+        self._rs, _ = random_state(seed)
         # we assume that all graphs have node features of the same dimensionality
         self.node_features_size = graphs[0].node_features(graphs[0].nodes()).shape[1]
 
@@ -652,6 +654,6 @@ class GraphSequence(Sequence):
          Shuffle all graphs at the end of each epoch
         """
         indexes = list(range(len(self.graphs)))
-        random.shuffle(indexes)
+        self._rs.shuffle(indexes)
         self.graphs = [self.graphs[i] for i in indexes]
         self.targets = self.targets[indexes]
