@@ -286,6 +286,7 @@ ALGORITHMS = [
             link="node-classification/rgcn/rgcn-aifb-node-classification-example.ipynb"
         ),
         lp=True,
+        rl=rl_dgi(),
     ),
     Algorithm(
         T("GAT", details="Graph ATtention Network"),

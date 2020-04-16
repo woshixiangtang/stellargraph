@@ -78,7 +78,7 @@ The demo notebooks can be run without any installation of Python by using Binder
     <td>yes</td>
     <td><a href='node-classification/rgcn/rgcn-aifb-node-classification-example.ipynb'>demo</a></td>
     <td>yes</td>
-    <td></td>
+    <td><span title='DeepGraphInfomax, using mutual information'><a href='embeddings/deep-graph-infomax-cora.ipynb'>DGI</a></span></td>
     <td></td>
     <td></td>
   </tr>
